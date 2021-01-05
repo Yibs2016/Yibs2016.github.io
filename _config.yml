@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hello World
+title: There is a way
 subtitle:
-description: Get it off
+description: it grows
 author: Yibs
 language: zh-Hans
 timezone: 
@@ -87,18 +87,14 @@ deploy:
 baidu_analytics: 5448c2781249a8696ee5e61ad446fdfe
 
 # photo
-avatar: /images/Tiffany.jpg
+avatar: /images/avatar.jpg
 
 # sidebar
 sidebar: post
 
 #search
-algolia:
-  applicationID: 'QNUHZ8JCBF'
-  apiKey: '9701601cce0b6620ecef27132e866ea4'
-  adminApiKey: '5d544675ef7f6a7f197410bdad8e2358'
-  indexName: 'yibs'
-  chunkSize: 5000
-  fields:
-    - title
-    - slug
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
