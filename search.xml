@@ -381,7 +381,7 @@
 <h4 id="git"><a href="#git" class="headerlink" title="git"></a>git</h4><blockquote>
 <p><a href="https://www.bookstack.cn/read/git-tutorial/docs-branch.md">阮一峰git教程</a><br><a href="https://kingofamani.gitbooks.io/git-teach/content/">Git</a><br><a href="https://juejin.cn/post/6875874533228838925#heading-13">Git 工作流</a><br><a href="https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">Git commmit msg</a></p>
 </blockquote>
-<h4 id="git-1"><a href="#git-1" class="headerlink" title="git"></a>git</h4><blockquote>
+<h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><blockquote>
 <p><a href="https://javascript.ruanyifeng.com/nodejs/npm.html">阮一峰npm教程</a></p>
 </blockquote>
 <h4 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h4><blockquote>
@@ -392,7 +392,7 @@
 <p><a href="https://react.iamkasong.com/">react</a><br><a href="https://react.jokcy.me/">react</a></p>
 </blockquote>
 <h4 id="others"><a href="#others" class="headerlink" title="others"></a>others</h4><blockquote>
-<p><a href="https://wangdoc.com/">网道文档</a><br><a href="https://wsgzao.github.io/post/windows-batch/">windows批处理</a><br><a href="https://juejin.cn/post/6844904067961978894#heading-0">博客美化工具</a></p>
+<p><a href="https://wangdoc.com/">网道文档</a><br><a href="https://wsgzao.github.io/post/windows-batch/">windows批处理</a><br><a href="https://juejin.cn/post/6844904067961978894#heading-0">博客美化工具</a><br><a href="https://www.bootcdn.cn/">cdn</a></p>
 </blockquote>
 ]]></content>
   </entry>
@@ -532,14 +532,6 @@
 </blockquote>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p>数据：整数、布尔值；操作符；变量、赋值；表达式<br>流程控制、分支、循环<br>程序：语句、注释、语句块<br>函数、子程序、参数、返回值、调用<br>数据 操作符 运算(值运算,逻辑运算) 流程控制</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>tool</title>
-    <url>/2021/01/06/tools/</url>
-    <content><![CDATA[<blockquote>
-<p>cdn  <a href="https://www.bootcdn.cn/">https://www.bootcdn.cn/</a></p>
 </blockquote>
 ]]></content>
   </entry>
