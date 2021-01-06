@@ -79,8 +79,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Yibs2016/Yibs2016.github.io.git
-  branch: master
+  repo: git@github.com:Yibs2016/Yibs2016.github.io.git
+  branch: master  
 
 # baidu_analytics
 ##

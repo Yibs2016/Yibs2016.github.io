@@ -16,7 +16,7 @@ title: 前端链接
 > [Git commmit msg](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
 
-#### git
+#### npm
 > [阮一峰npm教程](https://javascript.ruanyifeng.com/nodejs/npm.html)
 
  
@@ -34,4 +34,5 @@ title: 前端链接
 > [网道文档](https://wangdoc.com/)
 > [windows批处理](https://wsgzao.github.io/post/windows-batch/)
 > [博客美化工具](https://juejin.cn/post/6844904067961978894#heading-0)
+> [cdn](https://www.bootcdn.cn/)
  
