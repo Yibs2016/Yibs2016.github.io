@@ -34,8 +34,8 @@ jobs:
           git config --global user.name "Yibs2016"
           npm install hexo-cli -g
           npm install
-          
-      - name: deploy to github  
+      - name: Deploy
         run: |
-          hexo clean && hexo generate && hexo deploy
-  
+          hexo clean
+          hexo g 
+          hexo deploy
