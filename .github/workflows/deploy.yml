@@ -3,7 +3,7 @@ name: Hexo Deploy
 on:
   push:
     branches:
-      - Hexo
+      - hexo
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v1
         with:
-          ref: Hexo
+          ref: hexo
 
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v1
