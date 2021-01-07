@@ -7,18 +7,19 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-18.04
+    if: github.event.repository.owner.id == github.event.sender.id
+
     steps:
       - name: Checkout source
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           ref: master
 
-      - name: Use Node.js ${{ matrix.node_version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: '12'
 
       - name: Setup Hexo
         env:
@@ -33,8 +34,8 @@ jobs:
           git config --global user.name "Yibs2016"
           npm install hexo-cli -g
           npm install
-          
-      - name: deploy to github  
+      - name: Deploy
         run: |
-          hexo clean && hexo generate && hexo deploy
-  
+          hexo clean
+          hexo g 
+          hexo deploy
