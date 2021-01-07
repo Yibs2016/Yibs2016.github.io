@@ -5,3 +5,12 @@ db.json
 node_modules/
 public/
 .deploy*/
+.idea
+.github/
+page/
+lib/
+js/
+css/
+images/
+archives/
+2021/

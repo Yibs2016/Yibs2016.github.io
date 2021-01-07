@@ -34,4 +34,4 @@ title: 前端链接
 > [网道文档](https://wangdoc.com/)
 > [windows批处理](https://wsgzao.github.io/post/windows-batch/)
 > [博客美化工具](https://juejin.cn/post/6844904067961978894#heading-0)
- 
+> [cdn](https://www.bootcdn.cn/)
