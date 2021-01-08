@@ -1,6 +1,10 @@
 ---
 title: git
 ---
+### 概念
+源码管理系统
+对当前文件提供版本管理功能，核心思想是对当前文件建立一个对象数据库，将历史版本信息存放在这个数据库中
+
 ### config
 git config –global user.name 'xxx'
 git config –global user.email 'xxx'
@@ -22,16 +26,25 @@ git config --global core.ignorecase false  //默认忽略大小写
 ### branch
 执行某个快照的指针,分支名就是指针名;当前分支有新快照,指针就会自动指向它
 `` HEAD ``特殊指针,指向当前分支最近一次快照 
+`` HEAD^ ``HEAD前一个快照 
+`` HEAD~6 ``HEAD之前的第6个快照 
+git push origin --delete xxx  //删除远程分支
 
 <!--more-->
-### fast forward
-dev靠前,master靠后，master可以通过merge追赶上dev,追赶动作即为fast forward
+### 合并
+dev靠前,master靠后，master可以通过merge追赶上dev 
+直进式合并，不生成单独的合并节点
+非直进式，生成单独节点，利于保持清晰的cm信息
 - git merge –no-ff dev 保存dev历史,方便查看提交记录
 - git merge dev 只保留单分支记录
 ### detached HEAD 游离态
 HEAD不指向本地某分支都处于该状态
 - co到某个cm,且那个cm目前没有分支指向它
 - rebase是不断detached HEAD的过程
+
+### 追踪关系
+某些场合，Git会自动在本地分支和远程分支之间建立一种追踪关系，比如git clone，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说本地master自动追踪origin/master分支
+ 
 ### hook
 发生特定行为时机,触发执行自定义脚本
 pre-commit: 执行git commit命令时触发，常用于检查代码风格  //"lint-staged"
@@ -41,7 +54,10 @@ post-merge: 成功完成一次 merge行为后触发
 pre-push: 执行git push命令时触发，可用于执行测试用例
 pre-auto-gc: 执行垃圾回收前触发
 
- 
+### cherry-pick
+命令"复制"一个提交节点并在当前分支做一次完全一样新提交
+cp多个提交需要按照提交顺序先到后，逐个嶙选
+
 ### revert
 用于撤销commit
 1. git revert commit_id  [按距离现在时间近到远一次cm]
