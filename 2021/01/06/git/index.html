@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="configgit config –global user.name ‘xxx’git config –global user.email ‘xxx’git config –global core.ignorecase false  &#x2F;&#x2F;默认忽略大小写本地私钥，远程存放公钥 步骤1.生成ssh密钥 1. Git Bash 2. ssh-keygen -t rsa -b 4096 -C &quot;">
+<meta name="description" content="概念源码管理系统对当前文件提供版本管理功能，核心思想是对当前文件建立一个对象数据库，将历史版本信息存放在这个数据库中 configgit config –global user.name ‘xxx’git config –global user.email ‘xxx’git config –global core.ignorecase false  &#x2F;&#x2F;默认忽略大小写本地私钥，远程存放公钥 步骤1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git">
 <meta property="og:url" content="https://yibs2016.github.io/2021/01/06/git/index.html">
 <meta property="og:site_name" content="There is a way">
-<meta property="og:description" content="configgit config –global user.name ‘xxx’git config –global user.email ‘xxx’git config –global core.ignorecase false  &#x2F;&#x2F;默认忽略大小写本地私钥，远程存放公钥 步骤1.生成ssh密钥 1. Git Bash 2. ssh-keygen -t rsa -b 4096 -C &quot;">
+<meta property="og:description" content="概念源码管理系统对当前文件提供版本管理功能，核心思想是对当前文件建立一个对象数据库，将历史版本信息存放在这个数据库中 configgit config –global user.name ‘xxx’git config –global user.email ‘xxx’git config –global core.ignorecase false  &#x2F;&#x2F;默认忽略大小写本地私钥，远程存放公钥 步骤1">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-06T09:26:38.777Z">
-<meta property="article:modified_time" content="2021-01-06T09:26:38.777Z">
+<meta property="article:modified_time" content="2021-01-08T03:47:01.947Z">
 <meta property="article:author" content="Yibs">
 <meta name="twitter:card" content="summary">
 
@@ -343,7 +343,8 @@
       
 
       
-        <h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>git config –global user.name ‘xxx’<br>git config –global user.email ‘xxx’<br>git config –global core.ignorecase false  //默认忽略大小写<br>本地私钥，远程存放公钥</p>
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>源码管理系统<br>对当前文件提供版本管理功能，核心思想是对当前文件建立一个对象数据库，将历史版本信息存放在这个数据库中</p>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>git config –global user.name ‘xxx’<br>git config –global user.email ‘xxx’<br>git config –global core.ignorecase false  //默认忽略大小写<br>本地私钥，远程存放公钥</p>
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1.生成ssh密钥</p>
 <pre><code>1. Git Bash
 2. ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
@@ -354,16 +355,19 @@
 <ol>
 <li>git commit</li>
 <li>git pull</li>
-<li>git reset <h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3>执行某个快照的指针,分支名就是指针名;当前分支有新快照,指针就会自动指向它<br><code>HEAD</code>特殊指针,指向当前分支最近一次快照 </li>
+<li>git reset <h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3>执行某个快照的指针,分支名就是指针名;当前分支有新快照,指针就会自动指向它<br><code>HEAD</code>特殊指针,指向当前分支最近一次快照<br><code>HEAD^</code>HEAD前一个快照<br><code>HEAD~6</code>HEAD之前的第6个快照<br>git push origin –delete xxx  //删除远程分支</li>
 </ol>
 <a id="more"></a>
-<h3 id="fast-forward"><a href="#fast-forward" class="headerlink" title="fast forward"></a>fast forward</h3><p>dev靠前,master靠后，master可以通过merge追赶上dev,追赶动作即为fast forward</p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>dev靠前,master靠后，master可以通过merge追赶上dev<br>直进式合并，不生成单独的合并节点<br>非直进式，生成单独节点，利于保持清晰的cm信息</p>
 <ul>
 <li>git merge –no-ff dev 保存dev历史,方便查看提交记录</li>
 <li>git merge dev 只保留单分支记录<h3 id="detached-HEAD-游离态"><a href="#detached-HEAD-游离态" class="headerlink" title="detached HEAD 游离态"></a>detached HEAD 游离态</h3>HEAD不指向本地某分支都处于该状态</li>
 <li>co到某个cm,且那个cm目前没有分支指向它</li>
-<li>rebase是不断detached HEAD的过程<h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3>发生特定行为时机,触发执行自定义脚本<br>pre-commit: 执行git commit命令时触发，常用于检查代码风格  //“lint-staged”<br>commit-msg: commit后触发，常用于校验提交说明是否标准  //“commitlint -E HUSKY_GIT_PARAMS”<br>post-commit: 整个git commit完成后触发，常用于邮件通知、提醒<br>post-merge: 成功完成一次 merge行为后触发<br>pre-push: 执行git push命令时触发，可用于执行测试用例<br>pre-auto-gc: 执行垃圾回收前触发</li>
+<li>rebase是不断detached HEAD的过程</li>
 </ul>
+<h3 id="追踪关系"><a href="#追踪关系" class="headerlink" title="追踪关系"></a>追踪关系</h3><p>某些场合，Git会自动在本地分支和远程分支之间建立一种追踪关系，比如git clone，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说本地master自动追踪origin/master分支</p>
+<h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>发生特定行为时机,触发执行自定义脚本<br>pre-commit: 执行git commit命令时触发，常用于检查代码风格  //“lint-staged”<br>commit-msg: commit后触发，常用于校验提交说明是否标准  //“commitlint -E HUSKY_GIT_PARAMS”<br>post-commit: 整个git commit完成后触发，常用于邮件通知、提醒<br>post-merge: 成功完成一次 merge行为后触发<br>pre-push: 执行git push命令时触发，可用于执行测试用例<br>pre-auto-gc: 执行垃圾回收前触发</p>
+<h3 id="cherry-pick"><a href="#cherry-pick" class="headerlink" title="cherry-pick"></a>cherry-pick</h3><p>命令”复制”一个提交节点并在当前分支做一次完全一样新提交<br>cp多个提交需要按照提交顺序先到后，逐个嶙选</p>
 <h3 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h3><p>用于撤销commit</p>
 <ol>
 <li>git revert commit_id  [按距离现在时间近到远一次cm]</li>
@@ -530,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#config"><span class="nav-number">1.</span> <span class="nav-text">config</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E7%85%A7"><span class="nav-number">2.</span> <span class="nav-text">快照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">3.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-number">4.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fast-forward"><span class="nav-number">5.</span> <span class="nav-text">fast forward</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detached-HEAD-%E6%B8%B8%E7%A6%BB%E6%80%81"><span class="nav-number">6.</span> <span class="nav-text">detached HEAD 游离态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hook"><span class="nav-number">7.</span> <span class="nav-text">hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#revert"><span class="nav-number">8.</span> <span class="nav-text">revert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fetch"><span class="nav-number">9.</span> <span class="nav-text">fetch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rebase"><span class="nav-number">10.</span> <span class="nav-text">rebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">11.</span> <span class="nav-text">修改文件&#x2F;文件夹大小写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%B0%E7%9A%84%E5%BC%AF%E8%B7%AF"><span class="nav-number">11.1.</span> <span class="nav-text">走的弯路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E8%A7%A3"><span class="nav-number">11.2.</span> <span class="nav-text">正解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config"><span class="nav-number">2.</span> <span class="nav-text">config</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E7%85%A7"><span class="nav-number">3.</span> <span class="nav-text">快照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">4.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-number">5.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6"><span class="nav-number">6.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detached-HEAD-%E6%B8%B8%E7%A6%BB%E6%80%81"><span class="nav-number">7.</span> <span class="nav-text">detached HEAD 游离态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%BD%E8%B8%AA%E5%85%B3%E7%B3%BB"><span class="nav-number">8.</span> <span class="nav-text">追踪关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hook"><span class="nav-number">9.</span> <span class="nav-text">hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cherry-pick"><span class="nav-number">10.</span> <span class="nav-text">cherry-pick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#revert"><span class="nav-number">11.</span> <span class="nav-text">revert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fetch"><span class="nav-number">12.</span> <span class="nav-text">fetch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rebase"><span class="nav-number">13.</span> <span class="nav-text">rebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">14.</span> <span class="nav-text">修改文件&#x2F;文件夹大小写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%B0%E7%9A%84%E5%BC%AF%E8%B7%AF"><span class="nav-number">14.1.</span> <span class="nav-text">走的弯路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E8%A7%A3"><span class="nav-number">14.2.</span> <span class="nav-text">正解</span></a></li></ol></li></ol></div>
             
 
           </div>
