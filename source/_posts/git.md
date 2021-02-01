@@ -32,11 +32,13 @@ git push origin --delete xxx  //删除远程分支
 
 <!--more-->
 ### 合并
-dev靠前,master靠后，master可以通过merge追赶上dev 
-直进式合并，不生成单独的合并节点
-非直进式，生成单独节点，利于保持清晰的cm信息
-- git merge –no-ff dev 保存dev历史,方便查看提交记录
-- git merge dev 只保留单分支记录
+dev靠前,master靠后，master可以通过merge追赶上dev: git merge dev 
+- --ff 直进式合并，不生成单独的合并节点[默认]
+- --no-ff 非直进式，生成单独节点，利于保持清晰的cm信息
+- --squash 合并所有commit history作为本地的修改，需要手动commit，可以保持 master 分支干净
+  [不提交、不移动HEAD，因此需要一条额外的commit命令]
+- --abort 终止合并
+
 ### detached HEAD 游离态
 HEAD不指向本地某分支都处于该状态
 - co到某个cm,且那个cm目前没有分支指向它
@@ -57,6 +59,16 @@ pre-auto-gc: 执行垃圾回收前触发
 ### cherry-pick
 命令"复制"一个提交节点并在当前分支做一次完全一样新提交
 cp多个提交需要按照提交顺序先到后，逐个嶙选
+cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新提交]
+1. 转移系列提交 git cherry-pick A..B [提交A必须早于提交B,不包含A]   git cherry-pick A^..B[包含A] 
+2. -m
+   如果原始提交是个合并节点，来自2分支的合并，cp默认失败[不知道应该采用哪个分支的代码变动]
+   -m告诉git应该采用哪个分支的变动,参数parent-number为从1开始的整数: 原始提交的父分支编号
+   git cherry-pick -m 1 <commitHash> --> 采用提交commitHash来自编号1的父分支的变动
+   1号父分支: 接受变动的分支
+   2号父分支: 变动来源分支
+   比如xxx分支合到dev,cp -m 1 id 到master,合并的是dev分支的变动; cp -m 2 id 到master,合并的是xxx分支的变动;
+  
 
 ### revert
 用于撤销commit
@@ -81,3 +93,12 @@ cp多个提交需要按照提交顺序先到后，逐个嶙选
 3. git push
 4. [注]：不能重命名正在开发中的文件夹,不然合并时冲突会导致重命名失效
 
+#### 删除分支
+##### 删除远程分支
+1. 删除远程分支 git push origin --delete xxx
+    gitlab手动删除后本地还有备份数据，用指令 git remote prune origin 同步 
+    [= git fetch -p = git remote update -p]
+2. 删除本地分支 
+    [已推送或合并]git branch -d xxx
+    [未推送]git branch -D xxx
+ 

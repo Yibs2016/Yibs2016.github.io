@@ -21,18 +21,29 @@ title: 前端链接
 
  
 #### ts
-> [typescriptlang](https://www.typescriptlang.org/docs/handbook/intro.html)
-> [ts](https://lucifer.ren/blog/2020/06/16/ts-generics/)
+> [typescriptlang](https://www.typescriptlang.org/docs/handbook/intro.html) 
+> [泛型-lucifer](https://lucifer.ren/blog/2020/06/16/ts-generics/)
+> [泛型-blog](https://blog.csdn.net/semlinker/article/details/106882403)
 
 <!--more-->
  
 #### react
-> [react](https://react.iamkasong.com/)
-> [react](https://react.jokcy.me/)
+> [react技术揭秘](https://react.iamkasong.com/)
+> [react源码解析](https://react.jokcy.me/)
+ 
+#### vue
+> [template-explorer-2.0](https://template-explorer.vuejs.org/)
+> [template-explorer-3.0](https://vue-next-template-explorer.netlify.app/) 
 
+#### tool
+> [vscode-ts-autofix](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb) 
 #### others
 > [网道文档](https://wangdoc.com/)
 > [windows批处理](https://wsgzao.github.io/post/windows-batch/)
 > [博客美化工具](https://juejin.cn/post/6844904067961978894#heading-0)
 > [cdn](https://www.bootcdn.cn/) 
 > [ast](https://astexplorer.net/)
+
+#### 近期阅读
+> [ts](https://github.com/microsoft/TypeScript/wiki/Performance) 
+
