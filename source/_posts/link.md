@@ -34,16 +34,28 @@ title: 前端链接
 #### vue
 > [template-explorer-2.0](https://template-explorer.vuejs.org/)
 > [template-explorer-3.0](https://vue-next-template-explorer.netlify.app/) 
+> [vue源码解析](https://book.penblog.cn/) 
 
-#### tool
-> [vscode-ts-autofix](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb) 
 #### others
 > [网道文档](https://wangdoc.com/)
 > [windows批处理](https://wsgzao.github.io/post/windows-batch/)
 > [博客美化工具](https://juejin.cn/post/6844904067961978894#heading-0)
 > [cdn](https://www.bootcdn.cn/) 
 > [ast](https://astexplorer.net/)
+> [前端各类规范集合](https://github.com/ecomfe/spec)
 
 #### 近期阅读
 > [ts](https://github.com/microsoft/TypeScript/wiki/Performance) 
+
+
+#### 实用插件
+*   [vscode-ts-autofix](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)：vscode设置ts autofix 
+*   [浏览器插件fehelper](https://www.baidufe.com/fehelper/json-format/index.html)：前端工具集插件
+*   [WhatFont](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm)：一款可以显示浏览器中选择文字的字体类型／字号／颜色的插件  
+*   [vConsole](https://github.com/Tencent/vConsole)：轻量级移动端调试工具
+*   [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)：一款查看当前网站使用的前后端技术的插件，帮助你学习和认识优秀网站的技术选型
+*   [Mobile/Responsive Web Design Tester](https://chrome.google.com/webstore/detail/mobileresponsive-web-desi/elmekokodcohlommfikpmojheggnbelo)：一款用于测试页面在不同机型下呈现的插件
+*   [Resolution Test](https://chrome.google.com/webstore/detail/resolution-test/idhfcdbheobinplaamokffboaccidbal)：一款用于测试页面在不同分辨率下呈现的插件
+*   [Google PageSpeed Insights API Extension](https://chrome.google.com/webstore/detail/google-pagespeed-insights/hfebkooaidmeboeblkkejdoepilnnjhn)：一款专注于改进网页性能的开发者工具
+*   [Google PageSpeed Insights API Extension](https://www.juhe.cn/docs)：一款专注于改进网页性能的开发者工具
 
