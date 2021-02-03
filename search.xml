@@ -188,16 +188,25 @@
 <li>git reset <h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3>执行某个快照的指针,分支名就是指针名;当前分支有新快照,指针就会自动指向它<br><code>HEAD</code>特殊指针,指向当前分支最近一次快照<br><code>HEAD^</code>HEAD前一个快照<br><code>HEAD~6</code>HEAD之前的第6个快照<br>git push origin –delete xxx  //删除远程分支</li>
 </ol>
 <a id="more"></a>
-<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>dev靠前,master靠后，master可以通过merge追赶上dev<br>直进式合并，不生成单独的合并节点<br>非直进式，生成单独节点，利于保持清晰的cm信息</p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>dev靠前,master靠后，master可以通过merge追赶上dev: git merge dev </p>
 <ul>
-<li>git merge –no-ff dev 保存dev历史,方便查看提交记录</li>
-<li>git merge dev 只保留单分支记录<h3 id="detached-HEAD-游离态"><a href="#detached-HEAD-游离态" class="headerlink" title="detached HEAD 游离态"></a>detached HEAD 游离态</h3>HEAD不指向本地某分支都处于该状态</li>
+<li>–ff 直进式合并，不生成单独的合并节点[默认]</li>
+<li>–no-ff 非直进式，生成单独节点，利于保持清晰的cm信息</li>
+<li>–squash 合并所有commit history作为本地的修改，需要手动commit，可以保持 master 分支干净<br>[不提交、不移动HEAD，因此需要一条额外的commit命令]</li>
+<li>–abort 终止合并</li>
+</ul>
+<h3 id="detached-HEAD-游离态"><a href="#detached-HEAD-游离态" class="headerlink" title="detached HEAD 游离态"></a>detached HEAD 游离态</h3><p>HEAD不指向本地某分支都处于该状态</p>
+<ul>
 <li>co到某个cm,且那个cm目前没有分支指向它</li>
 <li>rebase是不断detached HEAD的过程</li>
 </ul>
 <h3 id="追踪关系"><a href="#追踪关系" class="headerlink" title="追踪关系"></a>追踪关系</h3><p>某些场合，Git会自动在本地分支和远程分支之间建立一种追踪关系，比如git clone，所有本地分支默认与远程主机的同名分支，建立追踪关系，也就是说本地master自动追踪origin/master分支</p>
 <h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>发生特定行为时机,触发执行自定义脚本<br>pre-commit: 执行git commit命令时触发，常用于检查代码风格  //“lint-staged”<br>commit-msg: commit后触发，常用于校验提交说明是否标准  //“commitlint -E HUSKY_GIT_PARAMS”<br>post-commit: 整个git commit完成后触发，常用于邮件通知、提醒<br>post-merge: 成功完成一次 merge行为后触发<br>pre-push: 执行git push命令时触发，可用于执行测试用例<br>pre-auto-gc: 执行垃圾回收前触发</p>
-<h3 id="cherry-pick"><a href="#cherry-pick" class="headerlink" title="cherry-pick"></a>cherry-pick</h3><p>命令”复制”一个提交节点并在当前分支做一次完全一样新提交<br>cp多个提交需要按照提交顺序先到后，逐个嶙选</p>
+<h3 id="cherry-pick"><a href="#cherry-pick" class="headerlink" title="cherry-pick"></a>cherry-pick</h3><p>命令”复制”一个提交节点并在当前分支做一次完全一样新提交<br>cp多个提交需要按照提交顺序先到后，逐个嶙选<br>cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新提交]</p>
+<ol>
+<li>转移系列提交 git cherry-pick A..B [提交A必须早于提交B,不包含A]   git cherry-pick A^..B[包含A] </li>
+<li>-m<br>如果原始提交是个合并节点，来自2分支的合并，cp默认失败[不知道应该采用哪个分支的代码变动]<br>-m告诉git应该采用哪个分支的变动,参数parent-number为从1开始的整数: 原始提交的父分支编号<br>git cherry-pick -m 1 <commitHash> –&gt; 采用提交commitHash来自编号1的父分支的变动<br>1号父分支: 接受变动的分支<br>2号父分支: 变动来源分支<br>比如xxx分支合到dev,cp -m 1 id 到master,合并的是dev分支的变动; cp -m 2 id 到master,合并的是xxx分支的变动;</li>
+</ol>
 <h3 id="revert"><a href="#revert" class="headerlink" title="revert"></a>revert</h3><p>用于撤销commit</p>
 <ol>
 <li>git revert commit_id  [按距离现在时间近到远一次cm]</li>
@@ -210,15 +219,11 @@
 <li>git push</li>
 <li>[注]：不能重命名正在开发中的文件夹,不然合并时冲突会导致重命名失效</li>
 </ol>
+<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><h5 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h5><ol>
+<li>删除远程分支 git push origin –delete xxx<br> gitlab手动删除后本地还有备份数据，用指令 git remote prune origin 同步<br> [= git fetch -p = git remote update -p]</li>
+<li>删除本地分支<br> [已推送或合并]git branch -d xxx<br> [未推送]git branch -D xxx</li>
+</ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>es6</title>
-    <url>/2021/01/06/es6/</url>
-    <content><![CDATA[<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><blockquote>
-<p>在目标对象之前架设一层拦截</p>
-</blockquote>
-<h3 id="生成器-迭代器"><a href="#生成器-迭代器" class="headerlink" title="生成器  迭代器"></a>生成器  迭代器</h3><h3 id="weekMap"><a href="#weekMap" class="headerlink" title="weekMap"></a>weekMap</h3>]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -389,15 +394,32 @@
 <p><a href="https://javascript.ruanyifeng.com/nodejs/npm.html">阮一峰npm教程</a></p>
 </blockquote>
 <h4 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h4><blockquote>
-<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">typescriptlang</a><br><a href="https://lucifer.ren/blog/2020/06/16/ts-generics/">ts</a></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html">typescriptlang</a><br><a href="https://lucifer.ren/blog/2020/06/16/ts-generics/">泛型-lucifer</a><br><a href="https://blog.csdn.net/semlinker/article/details/106882403">泛型-blog</a></p>
 </blockquote>
 <a id="more"></a>
 <h4 id="react"><a href="#react" class="headerlink" title="react"></a>react</h4><blockquote>
-<p><a href="https://react.iamkasong.com/">react</a><br><a href="https://react.jokcy.me/">react</a></p>
+<p><a href="https://react.iamkasong.com/">react技术揭秘</a><br><a href="https://react.jokcy.me/">react源码解析</a></p>
+</blockquote>
+<h4 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h4><blockquote>
+<p><a href="https://template-explorer.vuejs.org/">template-explorer-2.0</a><br><a href="https://vue-next-template-explorer.netlify.app/">template-explorer-3.0</a><br><a href="https://book.penblog.cn/">vue源码解析</a> </p>
 </blockquote>
 <h4 id="others"><a href="#others" class="headerlink" title="others"></a>others</h4><blockquote>
-<p><a href="https://wangdoc.com/">网道文档</a><br><a href="https://wsgzao.github.io/post/windows-batch/">windows批处理</a><br><a href="https://juejin.cn/post/6844904067961978894#heading-0">博客美化工具</a><br><a href="https://www.bootcdn.cn/">cdn</a><br><a href="https://astexplorer.net/">ast</a></p>
+<p><a href="https://wangdoc.com/">网道文档</a><br><a href="https://wsgzao.github.io/post/windows-batch/">windows批处理</a><br><a href="https://juejin.cn/post/6844904067961978894#heading-0">博客美化工具</a><br><a href="https://www.bootcdn.cn/">cdn</a><br><a href="https://astexplorer.net/">ast</a><br><a href="https://github.com/ecomfe/spec">前端各类规范集合</a></p>
 </blockquote>
+<h4 id="近期阅读"><a href="#近期阅读" class="headerlink" title="近期阅读"></a>近期阅读</h4><blockquote>
+<p><a href="https://github.com/microsoft/TypeScript/wiki/Performance">ts</a> </p>
+</blockquote>
+<h4 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h4><ul>
+<li><a href="https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb">vscode-ts-autofix</a>：vscode设置ts autofix </li>
+<li><a href="https://www.baidufe.com/fehelper/json-format/index.html">浏览器插件fehelper</a>：前端工具集插件</li>
+<li><a href="https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm">WhatFont</a>：一款可以显示浏览器中选择文字的字体类型／字号／颜色的插件  </li>
+<li><a href="https://github.com/Tencent/vConsole">vConsole</a>：轻量级移动端调试工具</li>
+<li><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg">Wappalyzer</a>：一款查看当前网站使用的前后端技术的插件，帮助你学习和认识优秀网站的技术选型</li>
+<li><a href="https://chrome.google.com/webstore/detail/mobileresponsive-web-desi/elmekokodcohlommfikpmojheggnbelo">Mobile/Responsive Web Design Tester</a>：一款用于测试页面在不同机型下呈现的插件</li>
+<li><a href="https://chrome.google.com/webstore/detail/resolution-test/idhfcdbheobinplaamokffboaccidbal">Resolution Test</a>：一款用于测试页面在不同分辨率下呈现的插件</li>
+<li><a href="https://chrome.google.com/webstore/detail/google-pagespeed-insights/hfebkooaidmeboeblkkejdoepilnnjhn">Google PageSpeed Insights API Extension</a>：一款专注于改进网页性能的开发者工具</li>
+<li><a href="https://www.juhe.cn/docs">Google PageSpeed Insights API Extension</a>：一款专注于改进网页性能的开发者工具</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -633,6 +655,14 @@
 <h3 id="删除前端项目中node-modules目录"><a href="#删除前端项目中node-modules目录" class="headerlink" title="删除前端项目中node_modules目录"></a>删除前端项目中node_modules目录</h3><blockquote>
 <p>npm install rimraf -g<br>rimraf node_modules    //当前目录下要删除的文件夹</p>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>vue</title>
+    <url>/2021/01/06/vue/</url>
+    <content><![CDATA[<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.env                # 所有的环境被载入</span><br><span class="line">.env.local          # 所有的环境被载入，但会被 git 忽略</span><br><span class="line">.env.[mode]         # 只在指定的模式下被载入</span><br><span class="line">.env.[mode].local   # 只在指定的模式下被载入，但会被 git 忽略</span><br><span class="line">.env.[mode].local &gt; .env.[mode] &gt; .env.local &gt; .env    &#x2F;&#x2F;相同会覆盖，不同进行合并</span><br></pre></td></tr></table></figure>
+<p>使用 <code>process.env.[name]</code> 进行访问，对象可以包含多个键值对，vue-cli仅支持VUE_APP_开头的变量[<code>NODE_ENV</code> 和 <code>BASE_URL</code>]除外，webpack的DefinePlugin没有命名限制<br>vue-cli-service serve –mode development<br>修改webpack 4中mode选项为dev，同时会读取.env.[mode]中的配置</p>
+<h3 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h3><p>webpack 通过 DefinePlugin 内置插件将 process.env 注入到客户端代码中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        new webpack.DefinePlugin(&#123;</span><br><span class="line">            &#39;process.env&#39;: &#123;</span><br><span class="line">                NODE_ENV: JSON.stringify(process.env.NODE_ENV)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;),</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;vue-cli 3.x 已封装好</span><br></pre></td></tr></table></figure></p>
 ]]></content>
   </entry>
 </search>
