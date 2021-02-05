@@ -21,9 +21,13 @@ title: 前端链接
 
  
 #### ts
+> [官网](https://www.typescriptlang.org/docs/)
+> [深入理解ts](https://jkchao.github.io/typescript-book-chinese/)
 > [typescriptlang](https://www.typescriptlang.org/docs/handbook/intro.html) 
 > [泛型-lucifer](https://lucifer.ren/blog/2020/06/16/ts-generics/)
 > [泛型-blog](https://blog.csdn.net/semlinker/article/details/106882403)
+
+
 
 <!--more-->
  
