@@ -38,7 +38,8 @@ title: 前端链接
 #### vue
 > [template-explorer-2.0](https://template-explorer.vuejs.org/)
 > [template-explorer-3.0](https://vue-next-template-explorer.netlify.app/) 
-> [vue源码解析](https://book.penblog.cn/) 
+> [vue源码解析1](https://book.penblog.cn/) 
+> [vue源码解析2](https://blog.windstone.cc/vue/source-study/) 
 
 #### others
 > [网道文档](https://wangdoc.com/)
