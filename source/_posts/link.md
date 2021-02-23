@@ -40,6 +40,7 @@ title: 前端链接
 > [template-explorer-3.0](https://vue-next-template-explorer.netlify.app/) 
 > [vue源码解析1](https://book.penblog.cn/) 
 > [vue源码解析2](https://blog.windstone.cc/vue/source-study/) 
+> [vue源码解析3](https://ustbhuangyi.github.io/vue-analysis/v2/prepare/)  
 
 #### others
 > [网道文档](https://wangdoc.com/)

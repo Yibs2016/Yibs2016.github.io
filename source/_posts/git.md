@@ -95,7 +95,7 @@ cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新
 
 #### 删除分支
 ##### 删除远程分支
-1. 删除远程分支 git push origin --delete xxx
+1. 删除远程分支 git push origin --delete xxx  
     gitlab手动删除后本地还有备份数据，用指令 git remote prune origin 同步 
     [= git fetch -p = git remote update -p]
 2. 删除本地分支 
