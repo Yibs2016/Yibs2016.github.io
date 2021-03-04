@@ -101,4 +101,4 @@ cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新
 2. 删除本地分支 
     [已推送或合并]git branch -d xxx
     [未推送]git branch -D xxx
- 
+  

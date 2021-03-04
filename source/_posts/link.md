@@ -26,6 +26,7 @@ title: 前端链接
 > [typescriptlang](https://www.typescriptlang.org/docs/handbook/intro.html) 
 > [泛型-lucifer](https://lucifer.ren/blog/2020/06/16/ts-generics/)
 > [泛型-blog](https://blog.csdn.net/semlinker/article/details/106882403)
+> [实战](https://github.com/zhongsp/TypeScript)  
 
 
 
