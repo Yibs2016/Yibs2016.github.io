@@ -92,6 +92,9 @@ cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新
 2. git mv ./docs.bak ./Docs git commit -m "rename step2"   
 3. git push
 4. [注]：不能重命名正在开发中的文件夹,不然合并时冲突会导致重命名失效
+### 删除文件/文件夹 
+1. git rm  
+2. git rm -r
 
 #### 删除分支
 ##### 删除远程分支
