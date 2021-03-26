@@ -54,7 +54,10 @@ title: 前端链接
 #### 近期阅读
 > [ts](https://github.com/microsoft/TypeScript/wiki/Performance) 
 
-
+#### 综合 
+> [博客1](https://blog.cjw.design/blog) 
+> [ts](https://lq782655835.github.io/blogs/team-standard/0.standard-ai-summary.html) 
+> [谷歌调试](https://juejin.cn/book/6844733783166418958/section/6844733783187390477)  
 #### 实用插件
 *   [vscode-ts-autofix](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)：vscode设置ts autofix 
 *   [浏览器插件fehelper](https://www.baidufe.com/fehelper/json-format/index.html)：前端工具集插件
@@ -64,5 +67,5 @@ title: 前端链接
 *   [Mobile/Responsive Web Design Tester](https://chrome.google.com/webstore/detail/mobileresponsive-web-desi/elmekokodcohlommfikpmojheggnbelo)：一款用于测试页面在不同机型下呈现的插件
 *   [Resolution Test](https://chrome.google.com/webstore/detail/resolution-test/idhfcdbheobinplaamokffboaccidbal)：一款用于测试页面在不同分辨率下呈现的插件
 *   [Google PageSpeed Insights API Extension](https://chrome.google.com/webstore/detail/google-pagespeed-insights/hfebkooaidmeboeblkkejdoepilnnjhn)：一款专注于改进网页性能的开发者工具
-*   [Google PageSpeed Insights API Extension](https://www.juhe.cn/docs)：一款专注于改进网页性能的开发者工具
+*   [聚合数据](https://www.juhe.cn/docs)：聚合数据
 

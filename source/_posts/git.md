@@ -105,3 +105,13 @@ cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新
     [已推送或合并]git branch -d xxx
     [未推送]git branch -D xxx
   
+#### 合并多次commit
+1. 查看commit节点id: git log --oneline
+2. git rebase -i [commit_id]   [追踪到该id的上一条]
+  - 进入rebase界面后，i,修改pick为squash[第一个pick除外] 
+   -- pick cm1
+   -- pick cm2
+    * cm1早于cm2提交,必须第一个为pick,后面为squash
+    * squash的作用是把commit合并到上一个提交
+  - esc+:+wq回车保存
+    * 保存后会进入另一个vi界面，如果第一个cm信息不想要保留，可以该界面修改
