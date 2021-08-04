@@ -5,6 +5,15 @@ title: Date
 ### Date
 
 <!--more-->
+```js
+function formatTime(val, tmpl='{0}年{1}月{2}日{3}时{4}分{5}秒') {
+  let timeArr = val.match(/\d+/g)
+  return tmpl.replace(/\{(\d+)\}/g, (...[, $1]) => {
+    let time = timeArr[$1] || '00';
+    return time.length < 2 ? '0'+time : time
+  })
+} 
+```
 
 ```js
 /*
