@@ -265,146 +265,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/js%E6%80%A7%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="There is a way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/01/06/js%E6%80%A7%E8%83%BD/" itemprop="url">性能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
-                2021-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/01/06/js%E6%80%A7%E8%83%BD/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/js%E6%80%A7%E8%83%BD/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="程序性能"><a href="#程序性能" class="headerlink" title="程序性能"></a>程序性能</h3><blockquote>
-<p>对 JavaScript 性能影响最大的因素是内存分配、垃圾收集和作用域访问。</p>
-</blockquote>
-<h4 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h4><blockquote>
-<p>在独立的线程运行一个 JavaScript 文件（即程序），使用异步事件在<br>线程之间传递消息。它们非常适用于把长时间的或资源密集型的任务卸载到不同的线程中，以提高主 UI 线程的响应性。<br>应用场景<br>处理密集型数学计算<br>大数据集排序<br>数据处理（压缩、音频分析、图像处理等）<br>高流量网络通信</p>
-</blockquote>
-<h5 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> worker = <span class="keyword">new</span> Worker(<span class="string">&quot;task.js&quot;</span>);</span><br><span class="line">worker.postMessage(); <span class="comment">//主线程向Worker发消息</span></span><br><span class="line">worker.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//接收子线程发回的消息</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Received message &quot;</span> + event.data); <span class="comment">//事件对象的data属性</span></span><br><span class="line">  doSomething();</span><br><span class="line">&#125;;</span><br><span class="line">worker.terminate(); <span class="comment">//关闭Worker</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/01/06/js%E6%80%A7%E8%83%BD/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -486,7 +346,7 @@
       
         
           <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>源码管理系统<br>对当前文件提供版本管理功能，核心思想是对当前文件建立一个对象数据库，将历史版本信息存放在这个数据库中</p>
-<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>git config –global user.name ‘xxx’<br>git config –global user.email ‘xxx’<br>git config –global core.ignorecase false  //默认忽略大小写<br>本地私钥，远程存放公钥</p>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><p>git config –global user.name xxx      //不要加引号<br>git config –global user.email xxx<br>git config –global core.ignorecase false  //默认忽略大小写<br>git config –global credential.helper store  //凭证存储  cache 15分钟后从内存中清除 store 将凭证用明文的形式存放在磁盘中永不过期<br>本地私钥，远程存放公钥</p>
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1.生成ssh密钥</p>
 <pre><code>1. Git Bash
 2. ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
@@ -506,137 +366,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="There is a way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/01/06/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
-                2021-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/01/06/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/hello-world/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="How-time-flies"><a href="#How-time-flies" class="headerlink" title="How time flies."></a>How time flies.</h3><p>When i thought of it, it turned out to be 4,09,2019.</p>
-<p>Pick it up again to recode the passing, including learning, efficiency, and life.</p>
-
-          
         
       
     </div>
@@ -776,6 +505,137 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="There is a way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/06/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
+                2021-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/06/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/hello-world/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="How-time-flies"><a href="#How-time-flies" class="headerlink" title="How time flies."></a>How time flies.</h3><p>When i thought of it, it turned out to be 4,09,2019.</p>
+<p>Pick it up again to recode the passing, including learning, efficiency, and life.</p>
+
+          
         
       
     </div>
@@ -1094,6 +954,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="There is a way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/" itemprop="url">行为委托</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
+                2021-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="class"><a href="#class" class="headerlink" title="class"></a>class</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">width, height</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.width = width || <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = height || <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.$elem = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params">$where</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.$elem) &#123;</span><br><span class="line">      <span class="built_in">this</span>.$elem</span><br><span class="line">        .css(&#123;</span><br><span class="line">          width: <span class="built_in">this</span>.width + <span class="string">&quot;px&quot;</span>,</span><br><span class="line">          height: <span class="built_in">this</span>.height + <span class="string">&quot;px&quot;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .appendTo($where);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">width, height, label</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(width, height);</span><br><span class="line">    <span class="built_in">this</span>.label = label || <span class="string">&quot;Default&quot;</span>;</span><br><span class="line">    <span class="built_in">this</span>.$elem = $(<span class="string">&quot;&lt;button&gt;&quot;</span>).text(<span class="built_in">this</span>.label);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params">$where</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>($where);</span><br><span class="line">    <span class="built_in">this</span>.$elem.click(<span class="built_in">this</span>.onClick.bind(<span class="built_in">this</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">onClick</span>(<span class="params">evt</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Button &#x27;&quot;</span> + <span class="built_in">this</span>.label + <span class="string">&quot;&#x27; clicked!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//class 字面语法不能声明属性(只能声明方法)  -&gt;  避免原型链末端的“实例”意外获取其他地方的属性</span></span><br><span class="line"><span class="comment">//通过extends很自然地扩展对象(子)类型</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/YDKJs_%E7%94%9F%E6%88%90%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1181,140 +1175,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2021/01/06/YDKJs_%E7%94%9F%E6%88%90%E5%99%A8/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="There is a way">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/" itemprop="url">行为委托</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
-                2021-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/" itemprop="commentCount">0</span> comments
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="class"><a href="#class" class="headerlink" title="class"></a>class</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">width, height</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.width = width || <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.height = height || <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">this</span>.$elem = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params">$where</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.$elem) &#123;</span><br><span class="line">      <span class="built_in">this</span>.$elem</span><br><span class="line">        .css(&#123;</span><br><span class="line">          width: <span class="built_in">this</span>.width + <span class="string">&quot;px&quot;</span>,</span><br><span class="line">          height: <span class="built_in">this</span>.height + <span class="string">&quot;px&quot;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .appendTo($where);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">width, height, label</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(width, height);</span><br><span class="line">    <span class="built_in">this</span>.label = label || <span class="string">&quot;Default&quot;</span>;</span><br><span class="line">    <span class="built_in">this</span>.$elem = $(<span class="string">&quot;&lt;button&gt;&quot;</span>).text(<span class="built_in">this</span>.label);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params">$where</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>($where);</span><br><span class="line">    <span class="built_in">this</span>.$elem.click(<span class="built_in">this</span>.onClick.bind(<span class="built_in">this</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">onClick</span>(<span class="params">evt</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Button &#x27;&quot;</span> + <span class="built_in">this</span>.label + <span class="string">&quot;&#x27; clicked!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//class 字面语法不能声明属性(只能声明方法)  -&gt;  避免原型链末端的“实例”意外获取其他地方的属性</span></span><br><span class="line"><span class="comment">//通过extends很自然地扩展对象(子)类型</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/01/06/YDKJs_%E8%A1%8C%E4%B8%BA%E5%A7%94%E6%89%98/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1628,6 +1488,142 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/YDKJs_%E5%BC%82%E6%AD%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="There is a way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/06/YDKJs_%E5%BC%82%E6%AD%A5/" itemprop="url">异步</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
+                2021-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/06/YDKJs_%E5%BC%82%E6%AD%A5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/YDKJs_%E5%BC%82%E6%AD%A5/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="链式流程-Promise-固有特性"><a href="#链式流程-Promise-固有特性" class="headerlink" title="链式流程 Promise 固有特性"></a>链式流程 Promise 固有特性</h4><blockquote>
+<p>function reject(){} 处理异步拒绝的决议 catch 能捕获包括语法错误在内的所有错误<br>调用 Promise 的 then(..) 会自动创建一个新的 Promise 从调用返回。<br>在完成或拒绝处理函数内部，如果返回一个值或抛出一个异常，新返回的 Promise 就相应地决议。<br>如果完成或拒绝处理函数返回一个 Promise，会成为当前 then(..) 返回的链接 Promise 决议值。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/06/YDKJs_%E5%BC%82%E6%AD%A5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1682,7 +1678,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
