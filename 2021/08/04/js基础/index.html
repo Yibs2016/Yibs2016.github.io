@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="属性描述符12345678var myObject &#x3D; &amp;#123;&amp;#125;;Object.defineProperty(myObject, &quot;a&quot;, &amp;#123;  value: 2,  writable: true, &#x2F;&#x2F;可写  configurable: true, &#x2F;&#x2F;可配置  enumerable: true &#x2F;&#x2F;可枚举&amp;#125;);myObject.a; &#x2F;&#x2F;">
+<meta name="description" content="字符串截取 slice(start, end)  支持负数, -1即最后一位 slice(0, -1) 截掉最后一位substring(start, end)  不支持负数 两个参数中较小一个作为起始位置  substring(2, 4) &#x3D; substring(4, 2)substr(start, len)    Array.prototype.sort([compareFunction]) 预">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象">
-<meta property="og:url" content="https://yibs2016.github.io/2021/01/06/YDKJs_%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/index.html">
+<meta property="og:title" content="基础">
+<meta property="og:url" content="https://yibs2016.github.io/2021/08/04/js%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="There is a way">
-<meta property="og:description" content="属性描述符12345678var myObject &#x3D; &amp;#123;&amp;#125;;Object.defineProperty(myObject, &quot;a&quot;, &amp;#123;  value: 2,  writable: true, &#x2F;&#x2F;可写  configurable: true, &#x2F;&#x2F;可配置  enumerable: true &#x2F;&#x2F;可枚举&amp;#125;);myObject.a; &#x2F;&#x2F;">
+<meta property="og:description" content="字符串截取 slice(start, end)  支持负数, -1即最后一位 slice(0, -1) 截掉最后一位substring(start, end)  不支持负数 两个参数中较小一个作为起始位置  substring(2, 4) &#x3D; substring(4, 2)substr(start, len)    Array.prototype.sort([compareFunction]) 预">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-01-06T09:26:38.775Z">
-<meta property="article:modified_time" content="2021-01-06T09:26:38.775Z">
+<meta property="article:published_time" content="2021-08-04T09:31:31.269Z">
+<meta property="article:modified_time" content="2021-08-04T09:48:57.578Z">
 <meta property="article:author" content="Yibs">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://yibs2016.github.io/2021/01/06/YDKJs_属性描述符/"/>
+  <link rel="canonical" href="https://yibs2016.github.io/2021/08/04/js基础/"/>
 
 
 
 
 
-  <title>对象 | There is a way</title>
+  <title>基础 | There is a way</title>
   
 
 
@@ -266,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/01/06/YDKJs_%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="https://yibs2016.github.io/2021/08/04/js%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">对象</h1>
+          <h1 class="post-title" itemprop="name headline">基础</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-06T17:26:38+08:00">
-                2021-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-04T17:31:31+08:00">
+                2021-08-04
               </time>
             
 
@@ -314,8 +314,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/01/06/YDKJs_%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/01/06/YDKJs_%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6/" itemprop="commentCount">0</span> comments
+                <a href="/2021/08/04/js%E5%9F%BA%E7%A1%80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://yibs2016.github.io/2021/08/04/js%E5%9F%BA%E7%A1%80/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -343,20 +343,64 @@
       
 
       
-        <h4 id="属性描述符"><a href="#属性描述符" class="headerlink" title="属性描述符"></a>属性描述符</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(myObject, <span class="string">&quot;a&quot;</span>, &#123;</span><br><span class="line">  value: <span class="number">2</span>,</span><br><span class="line">  writable: <span class="literal">true</span>, <span class="comment">//可写</span></span><br><span class="line">  configurable: <span class="literal">true</span>, <span class="comment">//可配置</span></span><br><span class="line">  enumerable: <span class="literal">true</span> <span class="comment">//可枚举</span></span><br><span class="line">&#125;);</span><br><span class="line">myObject.a; <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="对象默认的-Put-和-Get-操作分别控制属性值的设置和获取。"><a href="#对象默认的-Put-和-Get-操作分别控制属性值的设置和获取。" class="headerlink" title="对象默认的 [[Put]] 和 [[Get]] 操作分别控制属性值的设置和获取。"></a>对象默认的 [[Put]] 和 [[Get]] 操作分别控制属性值的设置和获取。</h3><h4 id="Put"><a href="#Put" class="headerlink" title="[[Put]]"></a>[[Put]]</h4><ol>
-<li>属性是访问描述符？如果是并且存在 setter 就调用 setter。</li>
-<li>属性的数据描述符中 writable 是 false ？如果是，在非严格模式下静默失败，在<br>严格模式下抛出 TypeError 异常。</li>
-<li>如果都不是，将该值设置为属性的值。</li>
+        <h4 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h4><blockquote>
+<p>slice(start, end)</p>
+<ol>
+<li>支持负数, -1即最后一位 slice(0, -1) 截掉最后一位<br>substring(start, end) </li>
+<li>不支持负数</li>
+<li>两个参数中较小一个作为起始位置  substring(2, 4) = substring(4, 2)<br>substr(start, len) </li>
 </ol>
-<h4 id="Get"><a href="#Get" class="headerlink" title="[[Get]]"></a>[[Get]]</h4><p>在语言规范中，myObject.a 在 myObject 上实际上是实现了 [[Get]] 操作（有点像函数调<br>用：<a href="">[Get]</a>）。对象默认的内置 [[Get]] 操作首先在对象中查找是否有名称相同的属性，<br>找到就返回属性值。如果没有找到同名属性，按照 [[Get]] 算法的定义沿着原型链查找</p>
-<h3 id="getter-和-setter-改写默认操作，但只能应用在单个属性上"><a href="#getter-和-setter-改写默认操作，但只能应用在单个属性上" class="headerlink" title="getter 和 setter 改写默认操作，但只能应用在单个属性上"></a>getter 和 setter 改写默认操作，但只能应用在单个属性上</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(</span><br><span class="line">  myObject, <span class="comment">// 目标对象</span></span><br><span class="line">  <span class="string">&quot;b&quot;</span>,&#123; <span class="comment">// 属性名  // 描述符</span></span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">this</span>.a * <span class="number">2</span> &#125;,  <span class="comment">// 给 b 设置一个 getter</span></span><br><span class="line">    enumerable: <span class="literal">true</span>  <span class="comment">// 设置b出现在对象的属性列表中</span></span><br><span class="line">  &#125;）</span><br><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">  <span class="keyword">get</span> <span class="title">a</span>() &#123;  <span class="comment">// 给 a 定义一个 getter</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">myObject.a = <span class="number">3</span>;</span><br><span class="line">myObject.a; <span class="comment">// 2</span></span><br><span class="line">  <span class="comment">//由于只定义a的getter，对a的值进行设置时set操作会忽略赋值操作，不会抛出错误。set操作没有意义。</span></span><br></pre></td></tr></table></figure>
-<h3 id="defineGetter访问属性-和-defineSetter设置属性"><a href="#defineGetter访问属性-和-defineSetter设置属性" class="headerlink" title="defineGetter访问属性 和 defineSetter设置属性"></a><strong>defineGetter</strong>访问属性 和 <strong>defineSetter</strong>设置属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.__defineGetter__(<span class="string">&quot;ago&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;ago&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d.ago; <span class="comment">// &#x27;ago&#x27;</span></span><br></pre></td></tr></table></figure>
-<!--more-->
-<h3 id="存在性"><a href="#存在性" class="headerlink" title="存在性"></a>存在性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">  a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="string">&quot;a&quot;</span> <span class="keyword">in</span> myObject; <span class="comment">// true</span></span><br><span class="line">myObject.hasOwnProperty(<span class="string">&quot;a&quot;</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h3 id="iterator"><a href="#iterator" class="headerlink" title="@@iterator"></a>@@iterator</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> it = myArray[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line">it.next(); <span class="comment">// &#123; value:1, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; value:2, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; value:3, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; done:true &#125;</span></span><br><span class="line"><span class="comment">//ES6 中的符号 Symbol.iterator 来获取对象的 @@iterator 内部属性。</span></span><br><span class="line"><span class="comment">//@@iterator 本身并不是一个迭代器对象，而是一个返回迭代器对象的函数</span></span><br></pre></td></tr></table></figure>
-<h3 id="给任何想遍历的对象定义-iterator"><a href="#给任何想遍历的对象定义-iterator" class="headerlink" title="给任何想遍历的对象定义 @@iterator"></a>给任何想遍历的对象定义 @@iterator</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  b: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(myObject, <span class="built_in">Symbol</span>.iterator, &#123;</span><br><span class="line">  enumerable: <span class="literal">false</span>,</span><br><span class="line">  writable: <span class="literal">false</span>,</span><br><span class="line">  configurable: <span class="literal">true</span>,</span><br><span class="line">  value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">var</span> idx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> ks = <span class="built_in">Object</span>.keys(o);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      next: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          value: o[ks[idx++]],</span><br><span class="line">          done: idx &gt; ks.length</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 手动遍历 myObject</span></span><br><span class="line"><span class="keyword">var</span> it = myObject[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line">it.next(); <span class="comment">// &#123; value:2, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; value:3, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; value:undefined, done:true &#125;</span></span><br><span class="line"><span class="comment">//任何具有 Symbol.iterator 属性的元素都是可迭代的。</span></span><br><span class="line"><span class="comment">//for...of 语句创建一个循环来迭代可迭代的对象。</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Array-prototype-sort-compareFunction"><a href="#Array-prototype-sort-compareFunction" class="headerlink" title="Array.prototype.sort([compareFunction])"></a>Array.prototype.sort([compareFunction])</h4><blockquote>
+<p>预设排序顺序：根据字串unicode编码<br>compareFunction: 定义排序顺序</p>
+<ol>
+<li>compareFunction(a, b) 回传值小于0: a排在b前面</li>
+<li>(a, b) =&gt; a-b 升序<br> cur: 10 next 3 10-3&gt;0 交换位置变成3 10</li>
+<li>(a, b) =&gt; b-a 降序<br> cur: 10 next 3 3-10&lt;0 位置不变10 3</li>
+<li>字符串排序<br> (a, b) =&gt; a &gt; b ? 1 : -1 字符串相减为NaN, 回传值必须为数字</li>
+</ol>
+</blockquote>
+<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><blockquote>
+<p>第二个参数：进制  </p>
+<ol>
+<li>toSting(16) // 0-F</li>
+<li>toSting(36) // 0-Z </li>
+</ol>
+</blockquote>
+<h4 id="String-prototype-padEnd"><a href="#String-prototype-padEnd" class="headerlink" title="String.prototype.padEnd()"></a>String.prototype.padEnd()</h4><blockquote>
+<p>填充字符串以达到指定长度</p>
+<ol>
+<li>str.padEnd(25, ‘.’)</li>
+</ol>
+</blockquote>
+<h4 id="String-prototype-repeat"><a href="#String-prototype-repeat" class="headerlink" title="String.prototype.repeat()"></a>String.prototype.repeat()</h4><blockquote>
+<p>重复字符串[MDN]</p>
+<ol>
+<li>str.repeat(2)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params">str, count</span>) </span>&#123; </span><br><span class="line">  <span class="comment">// 确保 count 为31位整数 绝大多数浏览器都不能支持 1 &lt;&lt; 28 长的字符串，所以：</span></span><br><span class="line">  <span class="keyword">if</span> (str.length * count &gt;= <span class="number">1</span> &lt;&lt; <span class="number">28</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">&#x27;repeat count must not overflow maximum string size&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> rpt = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">    <span class="keyword">if</span> ((count &amp; <span class="number">1</span>) === <span class="number">1</span>) &#123;</span><br><span class="line">      rpt += str;</span><br><span class="line">    &#125;</span><br><span class="line">    count &gt;&gt;&gt;= <span class="number">1</span>;  <span class="comment">//0填充右位移</span></span><br><span class="line">    <span class="keyword">if</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    str += str;    <span class="comment">//按2的指数相加</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> rpt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+//版本6：版本4的变样版本   免去创建数组与使用join方法   但在循环中创建字符串比要求的还长  所以</li>
+</ol>
+</blockquote>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><blockquote>
+<p>null 和 undefined 只有文字形式,没有构造形式<br>Date 只有构造,没有文字形式</p>
+</blockquote>
+<h3 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h3><blockquote>
+<p>所有的值都要转换成二进制，一个字符串由 0 个字符或者多个字符构成，它最终也要被转换成数值，再进一步被转换成二进制数值。<br>空字符串的值是’’，最终还是要被转换成二进制的 0。</p>
+</blockquote>
+<h4 id="原型作为默认值"><a href="#原型作为默认值" class="headerlink" title="原型作为默认值"></a>原型作为默认值</h4><p>vals = vals || Array.prototype;  //Function.prototype空函数<br>fn = fn || Function.prototype;  //RegExp.prototype空正则<br>rx = rx || RegExp.prototype;  //Array.prototype空数组</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h4 id="ASCII-码"><a href="#ASCII-码" class="headerlink" title="ASCII 码"></a>ASCII 码</h4><blockquote>
+<p>英语字符与二进制位之间的关系，这被称为 ASCII 码，ASCII 码一共规定了 128 个字符的编码</p>
+</blockquote>
+<h4 id="非-ASCII-码"><a href="#非-ASCII-码" class="headerlink" title="非 ASCII 码"></a>非 ASCII 码</h4><blockquote>
+<p>英语用 128 个符号编码就够了，但是用来表示其他语言，128 个符号是不够的。</p>
+</blockquote>
+<h4 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h4><blockquote>
+<p>为每种语言中的每个字符设定统一唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。<br>var reg = /^([\u4E00-\u9FA5])*\$/; 中文编码的开始和结束值<br>它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。</p>
+</blockquote>
+<h4 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h4><blockquote>
+<p>UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式。<br>是一种变长的编码方式。可以使用 1~4 个字节表示一个符号，根据不同的符号而变化字节长度。</p>
+</blockquote>
+<h3 id="Symbol-符号-简单标量基本类型-主要用于私有或特殊属性"><a href="#Symbol-符号-简单标量基本类型-主要用于私有或特殊属性" class="headerlink" title="Symbol 符号 简单标量基本类型 主要用于私有或特殊属性"></a>Symbol 符号 简单标量基本类型 主要用于私有或特殊属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sym = <span class="keyword">new</span> <span class="built_in">Symbol</span>(<span class="string">&quot;ss&quot;</span>); <span class="comment">// TypeError </span></span><br><span class="line"><span class="keyword">var</span> sym = <span class="built_in">Symbol</span>(<span class="string">&quot;ss&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> sym; <span class="comment">// &quot;symbol&quot; 原始类型值</span></span><br><span class="line"><span class="keyword">var</span> symObj = <span class="built_in">Object</span>(sym);</span><br><span class="line"><span class="keyword">typeof</span> symObj; <span class="comment">// &quot;object&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">&quot;bar&quot;</span>) === <span class="built_in">Symbol</span>.for(<span class="string">&quot;bar&quot;</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Symbol</span>(<span class="string">&quot;bar&quot;</span>) === <span class="built_in">Symbol</span>(<span class="string">&quot;bar&quot;</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>(sym); <span class="comment">// true  可转布尔值</span></span><br><span class="line"><span class="built_in">Number</span>(sym); <span class="comment">// TypeError 不能转数值 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="built_in">Symbol</span>.for([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">//与Symbol的区别是:会被登记在全局环境中供搜索 不存在才新建值</span></span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s1); <span class="comment">//返回一个已登记的 Symbol 类型值的key &quot;1,2,3&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">obj[<span class="built_in">Symbol</span>(<span class="string">&quot;a&quot;</span>)] = <span class="string">&quot;a&quot;</span>; <span class="comment">//不可枚举</span></span><br><span class="line">obj[<span class="built_in">Symbol</span>.for(<span class="string">&quot;b&quot;</span>)] = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">obj[<span class="string">&quot;c&quot;</span>] = <span class="string">&quot;c&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// logs &quot;c&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.stringify(&#123; [<span class="built_in">Symbol</span>(<span class="string">&quot;foo&quot;</span>)]: <span class="string">&quot;foo&quot;</span> &#125;); <span class="comment">//stringify时被忽略</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sym = <span class="built_in">Symbol</span>(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> obj = &#123; [sym]: <span class="number">1</span> &#125;;</span><br><span class="line">obj[sym]; <span class="comment">// 1</span></span><br><span class="line">obj[<span class="built_in">Object</span>(sym)]; <span class="comment">// still 1</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">Symbol</span>.toStringTag  <span class="comment">//内置 symbol, 对象的属性键</span></span><br><span class="line"><span class="built_in">Object</span>.definedPrototype(o, <span class="built_in">Symbol</span>.toStringTag, &#123;</span><br><span class="line">  value: <span class="string">&#x27;module&#x27;</span> </span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(o) <span class="comment">//&quot;[object module]&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; call  </span><br><span class="line">Function.prototype.call &#x3D; function(cxt, ...rest) &#123;</span><br><span class="line">  cxt &#x3D; cxt || window </span><br><span class="line">  cxt.$fn &#x3D; this  </span><br><span class="line">  return cxt.$fn(...rest)</span><br><span class="line">  delete cxt.$fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/06/YDKJs_%E5%BC%82%E6%AD%A5/" rel="next" title="异步">
-                <i class="fa fa-chevron-left"></i> 异步
+              <a href="/2021/01/06/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%80%BB%E7%BB%93/" rel="next" title="wx">
+                <i class="fa fa-chevron-left"></i> wx
               </a>
             
           </div>
@@ -390,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/01/06/css/" rel="prev" title="css">
-                css <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">属性描述符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E9%BB%98%E8%AE%A4%E7%9A%84-Put-%E5%92%8C-Get-%E6%93%8D%E4%BD%9C%E5%88%86%E5%88%AB%E6%8E%A7%E5%88%B6%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E8%AE%BE%E7%BD%AE%E5%92%8C%E8%8E%B7%E5%8F%96%E3%80%82"><span class="nav-number"></span> <span class="nav-text">对象默认的 [[Put]] 和 [[Get]] 操作分别控制属性值的设置和获取。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Put"><span class="nav-number">1.</span> <span class="nav-text">[[Put]]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Get"><span class="nav-number">2.</span> <span class="nav-text">[[Get]]</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getter-%E5%92%8C-setter-%E6%94%B9%E5%86%99%E9%BB%98%E8%AE%A4%E6%93%8D%E4%BD%9C%EF%BC%8C%E4%BD%86%E5%8F%AA%E8%83%BD%E5%BA%94%E7%94%A8%E5%9C%A8%E5%8D%95%E4%B8%AA%E5%B1%9E%E6%80%A7%E4%B8%8A"><span class="nav-number"></span> <span class="nav-text">getter 和 setter 改写默认操作，但只能应用在单个属性上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defineGetter%E8%AE%BF%E9%97%AE%E5%B1%9E%E6%80%A7-%E5%92%8C-defineSetter%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number"></span> <span class="nav-text">defineGetter访问属性 和 defineSetter设置属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E6%80%A7"><span class="nav-number"></span> <span class="nav-text">存在性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterator"><span class="nav-number"></span> <span class="nav-text">@@iterator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E4%BB%BB%E4%BD%95%E6%83%B3%E9%81%8D%E5%8E%86%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9A%E4%B9%89-iterator"><span class="nav-number"></span> <span class="nav-text">给任何想遍历的对象定义 @@iterator</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96"><span class="nav-number">1.</span> <span class="nav-text">字符串截取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-prototype-sort-compareFunction"><span class="nav-number">2.</span> <span class="nav-text">Array.prototype.sort([compareFunction])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-NaN"><span class="nav-number">3.</span> <span class="nav-text">toString</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-padEnd"><span class="nav-number">4.</span> <span class="nav-text">String.prototype.padEnd()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-prototype-repeat"><span class="nav-number">5.</span> <span class="nav-text">String.prototype.repeat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">数据类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">原型作为默认值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number"></span> <span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ASCII-%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">ASCII 码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E-ASCII-%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">非 ASCII 码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unicode"><span class="nav-number">3.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF-8"><span class="nav-number">4.</span> <span class="nav-text">UTF-8</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-%E7%AC%A6%E5%8F%B7-%E7%AE%80%E5%8D%95%E6%A0%87%E9%87%8F%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E4%B8%BB%E8%A6%81%E7%94%A8%E4%BA%8E%E7%A7%81%E6%9C%89%E6%88%96%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7"><span class="nav-number"></span> <span class="nav-text">Symbol 符号 简单标量基本类型 主要用于私有或特殊属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-number"></span> <span class="nav-text">code</span></a></div>
             
 
           </div>
