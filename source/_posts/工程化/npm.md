@@ -1,5 +1,5 @@
 ---
-title: 指令
+title: npm
 categories: 工程化
 ---
 ### NPM Node Package Manager，包管理和分发工具，方便开发者下载、安装、上传以及管理已经安装的包。
@@ -52,7 +52,7 @@ categories: 工程化
 
 ### 删除前端项目中node_modules目录
 > npm install rimraf -g
-> rimraf node_modules    //当前目录要删除的文件夹
+> rimraf node_modules    
 
 
 

@@ -1,30 +1,37 @@
 ---
-title: git
+title: git那些事
 categories: 工具
 ---
-### 概念
 源码管理系统
 对当前文件提供版本管理功能，核心思想是对当前文件建立一个对象数据库，将历史版本信息存放在这个数据库中
 
 ### config
-git config –global user.name xxx      //不要加引号
+git config –global user.name xxx      //不加引号
 git config –global user.email xxx
-git config --global core.ignorecase false  //默认忽略大小写
+git config --global core.ignorecase false  //大小写敏感
 git config --global credential.helper store  //凭证存储  cache 15分钟后从内存中清除 store 将凭证用明文的形式存放在磁盘中永不过期
 本地私钥，远程存放公钥
-#### 步骤
+#### 免密登录
 1.生成ssh密钥
     1. Git Bash
     2. ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 2.添加到账户
     1. .ssh文件夹下-复制id_rsa.pub 
+
+
+### 一些名词
 ### 快照
 二进制对象:保存当前目录结构,以及文件信息
+
+### HEAD
+指向当前分支最新提交
+
 ### 指针
 分支指针是`` 动态 ``的,改写分支指针的命令有：
 1. git commit
 2. git pull
 3. git reset 
+
 ### branch
 执行某个快照的指针,分支名就是指针名;当前分支有新快照,指针就会自动指向它
 `` HEAD ``特殊指针,指向当前分支最近一次快照 
@@ -78,28 +85,28 @@ cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新
 2. git revert多个连续cm
     git revert 5...3  不包含3   5->4 依次回退-> [ )
     git revert 3...5 [也可，不会包含3]
+
 ### fetch
 取回远程所有更新
 所取回的更新,在本地主机上要用"远程主机名/分支名"的形式读取;如origin/master
+
 ### rebase 
 变基,把提交历史整理成竖线,更直观
 所取回的更新,在本地主机上要用"远程主机名/分支名"的形式读取;如origin/master
-### 修改文件/文件夹大小写
-#### 走的弯路
-1. 直接修改名字后提交 
-2. 删除后commit,再将改好大写的备份文件add回去 
-3. 直接mv大写文件
-#### 正解
+
+### 常用指令
+#### 修改文件/文件夹大小写
 1. git mv ./Docs ./docs.bak  git commit -m "rename step1"
 2. git mv ./docs.bak ./Docs git commit -m "rename step2"   
 3. git push
 4. [注]：不能重命名正在开发中的文件夹,不然合并时冲突会导致重命名失效
-### 删除文件/文件夹 
+
+### 删除
+#### 删除文件/文件夹 
 1. git rm  
 2. git rm -r
 
 #### 删除分支
-##### 删除远程分支
 1. 删除远程分支 git push origin --delete xxx  
     gitlab手动删除后本地还有备份数据，用指令 git remote prune origin 同步 
     [= git fetch -p = git remote update -p]
@@ -107,13 +114,22 @@ cherry-pick不一定提交的hash,分支名也是可以的[转移改分支最新
     [已推送或合并]git branch -d xxx
     [未推送]git branch -D xxx
   
-#### 合并多次commit
-1. 查看commit节点id: git log --oneline
+#### 查看日志
+1. git log --oneline --all --graph --decorate
+
+### 修改提交信息
+1. git commit --amend  修改最后一次提交
 2. git rebase -i [commit_id]   [追踪到该id的上一条]
-  - 进入rebase界面后，i,修改pick为squash[第一个pick除外] 
-   -- pick cm1
-   -- pick cm2
-    * cm1早于cm2提交,必须第一个为pick,后面为squash
-    * squash的作用是把commit合并到上一个提交
-  - esc+:+wq回车保存
-    * 保存后会进入另一个vi界面，如果第一个cm信息不想要保留，可以该界面修改
+- 进入rebase界面后，i,修改pick为squash[第一个pick除外] 
+  -- pick cm1
+  -- pick cm2
+  * cm1早于cm2提交,必须第一个为pick,后面为squash
+  * squash的作用是把commit合并到上一个提交
+- esc+:+wq回车保存
+  * 保存后会进入另一个vi界面，如果第一个提交信息不想要保留，可以在该界面修改
+
+### 本地新分支提交
+The current branch xxx has no upstream branch, use git push --set-upstream origin xxx
+1.提交时设置分支追踪指定远端分支 git push -u  
+2.分支关联 git branch -u origin/feature
+3.git config --global push.default current  push当前分支到远程同名分支，如果远程同名分支不存在则自动创建同名分支
