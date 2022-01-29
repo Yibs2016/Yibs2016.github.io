@@ -55,6 +55,14 @@ categories: 工程化
 > rimraf node_modules    
 
 
+### unpkg
+内容源自 npm 的全球快速 CDN，提供包的文件访问服务   
+ 
+
+## 公司内部 UNPKG:
+1.公司私服npm不保证生产可用。一般需要用到对象存储oss存放npm包，提供可靠的文件访问服务。
+2.对unpkg服务二次开发：根据请求到不同的oss服务中获取npm包资源。
+3.使用CDN加速公司UNPKG服务，在靠近用户的边缘节点提供缓存服务。
 
 
 
