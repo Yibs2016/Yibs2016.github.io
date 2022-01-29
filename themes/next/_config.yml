@@ -35,7 +35,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "Hexo, World"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -92,11 +92,11 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: /
+  home: /||home
   #about: /about/ || user
   #tags: /tags/ || tags
-  #categories: /categories/ || th
-  archives: /archives
+  categories: /categories||th
+  archives: /archives||archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -111,9 +111,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+scheme: Pisces
 #scheme: Mist
-#scheme: Pisces
+#scheme: Muse
 #scheme: Gemini
 
 
@@ -362,7 +362,7 @@ han: false
 disqus:
   enable: false
   shortname: yibs2021
-  count: true
+  count: false
 
 # Hypercomments
 #hypercomments_id:
@@ -757,7 +757,7 @@ vendors:
 
   # Internal version: 4.6.2
   # See: http://fontawesome.io/
-  fontawesome:
+  fontawesome: //maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css
 
   # Internal version: 1
   # https://www.algolia.com

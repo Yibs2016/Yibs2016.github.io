@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: There is a way
+title: 一粒种子
 subtitle:
-description: it grows
+description: grow up
 author: Yibs
 language: zh-Hans
 timezone: 
@@ -36,7 +36,7 @@ external_link:
 field: site # Apply to the whole site
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:

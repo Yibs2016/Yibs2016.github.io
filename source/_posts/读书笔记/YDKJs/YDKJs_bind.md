@@ -1,5 +1,7 @@
 ---
 title: bind 与 softbind
+categories: 
+- [读书笔记, YDKJs]
 ---
 
 #### Function.prototype.bind(..)

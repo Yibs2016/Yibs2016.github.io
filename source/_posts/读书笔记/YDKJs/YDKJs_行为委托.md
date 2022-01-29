@@ -1,5 +1,7 @@
 ---
 title: 行为委托
+categories: 
+- [读书笔记, YDKJs]
 ---
 
 #### class

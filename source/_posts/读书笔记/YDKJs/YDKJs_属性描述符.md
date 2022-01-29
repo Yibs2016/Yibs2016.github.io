@@ -1,5 +1,7 @@
 ---
 title: 对象
+categories: 
+- [读书笔记, YDKJs]
 ---
 
 #### 属性描述符

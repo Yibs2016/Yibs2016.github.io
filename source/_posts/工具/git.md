@@ -1,5 +1,6 @@
 ---
 title: git
+categories: 工具
 ---
 ### 概念
 源码管理系统

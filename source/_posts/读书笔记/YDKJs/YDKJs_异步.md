@@ -1,5 +1,7 @@
 ---
 title: 异步
+categories: 
+- [读书笔记, YDKJs]
 ---
 
 #### 链式流程 Promise 固有特性
